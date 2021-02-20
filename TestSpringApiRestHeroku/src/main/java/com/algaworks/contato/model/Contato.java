@@ -22,19 +22,7 @@ public class Contato {
 	
 	@NotNull
 	@Email
-	private String email;
-	
-	@NotNull
-	@Idade
-	private String idade;
-	
-	public String getIdade() {
-		return idade;
-	}
-
-	public void setIdade(String idade) {
-		this.idade = idade;
-	}
+	private String emil;
 
 	public Long getId() {
 		return id;
@@ -53,11 +41,11 @@ public class Contato {
 	}
 
 	public String getEmail() {
-		return email;
+		return emil;
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.emil = email;
 	}
 
 	@Override
