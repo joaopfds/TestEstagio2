@@ -1,4 +1,4 @@
-package com.algaworks.contato.model;
+package com.algaworks.contato.model.com;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Contato {
+public class Matematica {
 	
 	@Id
 	@GeneratedValue(generator = "increment")
@@ -64,7 +64,7 @@ public class Contato {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Contato other = (Contato) obj;
+		Matematica other = (Matematica) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
