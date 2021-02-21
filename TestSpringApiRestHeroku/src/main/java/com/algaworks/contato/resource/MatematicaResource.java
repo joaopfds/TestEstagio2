@@ -1,4 +1,3 @@
-
 package com.algaworks.contato.resource;
 
 import java.util.List;
@@ -18,26 +17,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.algaworks.contato.model.Contato;
+import com.algaworks.contato.model.Matematica;
 import com.algaworks.contato.repository.Contatos;
+import com.algaworks.contato.repository.Matematicas;
 
 @RestController
 @RequestMapping("/matematica")
 public class MatematicaResource {
 	
 	@Autowired
-	private Contatos contatos;
+	private Matematicas matematicas;
 	
 	@PostMapping
-	public Contato adicionar(@Valid @RequestBody Contato contato) {
-		return contatos.save(contato);
+	public Matematica adicionar(@Valid @RequestBody Matematica matematica) {
+		return matematicas.save(matematica);
 	}
 	
 	@GetMapping
-	public List<Contato> listar() {
-		return contatos.findAll();
+	public List<Matematica> listar() {
+		return matematicas.findAll();
 	}
 	
-	@GetMapping("/{id}")
+	/*@GetMapping("/{id}")
 	public ResponseEntity<Contato> buscar(@PathVariable Long id) {
 		Contato contato = contatos.getOne(id);
 		
@@ -75,5 +76,5 @@ public class MatematicaResource {
 		contatos.delete(contato);
 		
 		return ResponseEntity.noContent().build();
-	}
+	}*/
 }

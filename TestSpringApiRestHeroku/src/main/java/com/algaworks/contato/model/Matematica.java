@@ -1,4 +1,5 @@
-package com.algaworks.contato.model.com;
+
+package com.algaworks.contato.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,10 +20,6 @@ public class Matematica {
 	
 	@NotBlank
 	private String nome;
-	
-	@NotNull
-	@Email
-	private String email;
 
 	public Long getId() {
 		return id;
@@ -39,15 +36,7 @@ public class Matematica {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -64,14 +53,15 @@ public class Matematica {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Matematica other = (Matematica) obj;
+		Contato other = (Contato) obj;
 		if (id == null) {
-			if (other.id != null)
+			if (other.getId() != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!id.equals(other.getId()))
 			return false;
 		return true;
 	}
+
 
 
 }
