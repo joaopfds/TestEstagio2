@@ -38,21 +38,21 @@ public class MatematicaResource {
 		return matematicas.findAll();
 	}
 	
-	/*@GetMapping("/{id}")
-	public ResponseEntity<Contato> buscar(@PathVariable Long id) {
-		Contato contato = contatos.getOne(id);
+	@GetMapping("/{id}")
+	public ResponseEntity<Matematica> buscar(@PathVariable Long id) {
+		Matematica matematica = matematicas.getOne(id);
 		
-		if (contato == null) {
+		if (matematica == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		return ResponseEntity.ok(contato);
+		return ResponseEntity.ok(matematica);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Contato> atualizar(@PathVariable Long id, 
+	public ResponseEntity<Matematica> atualizar(@PathVariable Long id, 
 			@Valid @RequestBody Contato contato) {
-		Contato existente = contatos.getOne(id);
+		Matematica existente = matematicas.getOne(id);
 		
 		if (existente == null) {
 			return ResponseEntity.notFound().build();
@@ -60,21 +60,21 @@ public class MatematicaResource {
 		
 		BeanUtils.copyProperties(contato, existente, "id");
 		
-		existente = contatos.save(existente);
+		existente = matematicas.save(existente);
 		
 		return ResponseEntity.ok(existente);
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> remover(@PathVariable Long id) {
-		Contato contato = contatos.getOne(id);
+		Matematica matematica = matematicas.getOne(id);
 		
-		if (contato == null) {
+		if (matematica == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		contatos.delete(contato);
+		matematicas.delete(matematica);
 		
 		return ResponseEntity.noContent().build();
-	}*/
+	}
 }
