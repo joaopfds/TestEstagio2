@@ -3,6 +3,7 @@ package com.estagio2.folders.resource;
 import java.util.List;
 
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
@@ -17,62 +18,62 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.estagio2.folders.model.Matematica;
-import com.estagio2.folders.repository.Matematicas;
+import com.estagio2.folders.model.Usuario;
+import com.estagio2.folders.repository.Usuarios;
 
 @RestController
-@RequestMapping("/matematica")
-public class MatematicaResource {
+@RequestMapping("/usuario")
+public class UsuariosResource {
 	
 	@Autowired
-	private Matematicas matematicas;
+	private Usuarios usuarios;
 	
 	@PostMapping
-	public Matematica adicionar(@Valid @RequestBody Matematica matematica) {
-		return matematicas.save(matematica);
+	public Usuario adicionar(@Valid @RequestBody Usuario usuario) {
+		return usuarios.save(usuario);
 	}
 	
 	@GetMapping
-	public List<Matematica> listar() {
-		return matematicas.findAll();
+	public List<Usuario> listar() {
+		return usuarios.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Matematica> buscar(@PathVariable Long id) {
-		Matematica matematica = matematicas.getOne(id);
+	public ResponseEntity<Usuario> buscar(@PathVariable Long id) {
+		Usuario usuario = usuarios.getOne(id);
 		
-		if (matematica == null) {
+		if (usuario == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		return ResponseEntity.ok(matematica);
+		return ResponseEntity.ok(usuario);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Matematica> atualizar(@PathVariable Long id, 
-			@Valid @RequestBody Matematica matematica) {
-		Matematica existente = matematicas.getOne(id);
+	public ResponseEntity<Usuario> atualizar(@PathVariable Long id, 
+			@Valid @RequestBody Usuario usuario) {
+		Usuario existente = usuarios.getOne(id);
 		
 		if (existente == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		BeanUtils.copyProperties(matematica, existente, "id");
+		BeanUtils.copyProperties(usuario, existente, "id");
 		
-		existente = matematicas.save(existente);
+		existente = usuarios.save(existente);
 		
 		return ResponseEntity.ok(existente);
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> remover(@PathVariable Long id) {
-		Matematica matematica = matematicas.getOne(id);
+		Usuario usuario = usuarios.getOne(id);
 		
-		if (matematica == null) {
+		if (usuario == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		matematicas.delete(matematica);
+		usuarios.delete(usuario);
 		
 		return ResponseEntity.noContent().build();
 	}

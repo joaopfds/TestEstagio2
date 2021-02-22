@@ -1,5 +1,7 @@
 package com.estagio2.folders.resource;
+
 import java.util.List;
+
 
 
 import javax.validation.Valid;
@@ -16,62 +18,62 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.estagio2.folders.model.Contato;
-import com.estagio2.folders.repository.Contatos;
+import com.estagio2.folders.model.Comentario;
+import com.estagio2.folders.repository.Comentarios;
 
 @RestController
-@RequestMapping("/contatos")
-public class ContatosResource {
+@RequestMapping("/comentarios")
+public class ComentarioResource {
 	
 	@Autowired
-	private Contatos contatos;
+	private Comentarios comentarios;
 	
 	@PostMapping
-	public Contato adicionar(@Valid @RequestBody Contato contato) {
-		return contatos.save(contato);
+	public Comentario adicionar(@Valid @RequestBody Comentario comentario) {
+		return comentarios.save(comentario);
 	}
 	
 	@GetMapping
-	public List<Contato> listar() {
-		return contatos.findAll();
+	public List<Comentario> listar() {
+		return comentarios.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Contato> buscar(@PathVariable Long id) {
-		Contato contato = contatos.getOne(id);
+	public ResponseEntity<Comentario> buscar(@PathVariable Long id) {
+		Comentario comentario = comentarios.getOne(id);
 		
-		if (contato == null) {
+		if (comentario == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		return ResponseEntity.ok(contato);
+		return ResponseEntity.ok(comentario);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Contato> atualizar(@PathVariable Long id, 
-			@Valid @RequestBody Contato contato) {
-		Contato existente = contatos.getOne(id);
+	public ResponseEntity<Comentario> atualizar(@PathVariable Long id, 
+			@Valid @RequestBody Comentario comentario) {
+		Comentario existente = comentarios.getOne(id);
 		
 		if (existente == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		BeanUtils.copyProperties(contato, existente, "id");
+		BeanUtils.copyProperties(comentario, existente, "id");
 		
-		existente = contatos.save(existente);
+		existente = comentarios.save(existente);
 		
 		return ResponseEntity.ok(existente);
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> remover(@PathVariable Long id) {
-		Contato contato = contatos.getOne(id);
+		Comentario comentario = comentarios.getOne(id);
 		
-		if (contato == null) {
+		if (comentario == null) {
 			return ResponseEntity.notFound().build();
 		}
 		
-		contatos.delete(contato);
+		comentarios.delete(comentario);
 		
 		return ResponseEntity.noContent().build();
 	}
