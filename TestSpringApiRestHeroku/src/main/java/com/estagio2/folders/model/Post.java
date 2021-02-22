@@ -25,7 +25,7 @@ public class Post {
 	private String text;
 	
 	@ManyToOne
-	@JoinColumn(name = "Usuario_id",referencedColumnName = "id")
+	@JoinColumn(name = "usuario_id",referencedColumnName = "id")
 		private Usuario usuario;
 	@OneToMany(mappedBy = "post")
 		private List<Comentario> comentarios = new ArrayList<>();
@@ -45,6 +45,22 @@ public class Post {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public List<Comentario> getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
 	}
 
 	@Override

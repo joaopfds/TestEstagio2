@@ -21,7 +21,7 @@ import com.estagio2.folders.model.Post;
 import com.estagio2.folders.repository.Posts;
 
 @RestController
-@RequestMapping("/Posts")
+@RequestMapping("/posts")
 public class PostsResource {
 	
 	@Autowired

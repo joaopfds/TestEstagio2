@@ -25,7 +25,7 @@ public class Comentario {
 	private String text;
 
 	@ManyToOne
-	@JoinColumn(name = "Post_id",referencedColumnName = "id")
+	@JoinColumn(name = "post_id",referencedColumnName = "id")
 	private Post post;
 
 	
@@ -43,6 +43,15 @@ public class Comentario {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+	
+
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
 	}
 
 	@Override
