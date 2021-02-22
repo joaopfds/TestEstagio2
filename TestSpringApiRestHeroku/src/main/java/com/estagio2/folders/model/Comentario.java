@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -22,6 +24,11 @@ public class Comentario {
 	@NotBlank
 	private String text;
 
+	@ManyToOne
+	@JoinColumn(name = "Post_id",referencedColumnName = "id")
+	private Post post;
+
+	
 	public Long getId() {
 		return id;
 	}

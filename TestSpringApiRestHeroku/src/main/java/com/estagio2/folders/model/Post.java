@@ -1,8 +1,14 @@
 package com.estagio2.folders.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -17,6 +23,13 @@ public class Post {
 	
 	@NotBlank
 	private String text;
+	
+	@ManyToOne
+	@JoinColumn(name = "Usuario_id",referencedColumnName = "id")
+		private Usuario usuario;
+	@OneToMany(mappedBy = "post")
+		private List<Comentario> comentarios = new ArrayList<>();
+
 
 	public Long getId() {
 		return id;
