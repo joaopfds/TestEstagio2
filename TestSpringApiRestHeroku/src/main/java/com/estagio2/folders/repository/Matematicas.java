@@ -1,9 +1,7 @@
-
-package com.algaworks.contato.repository;
+package com.estagio2.folders.repository; 
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.algaworks.contato.model.Matematica;
+import com.estagio2.folders.model.Matematica;
 
 public interface Matematicas extends JpaRepository<Matematica, Long> {
 

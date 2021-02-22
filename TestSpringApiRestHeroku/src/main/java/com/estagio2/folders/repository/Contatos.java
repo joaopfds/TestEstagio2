@@ -1,8 +1,7 @@
-package com.algaworks.contato.repository;
+package com.estagio2.folders.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.algaworks.contato.model.Contato;
+import com.estagio2.folders.model.Contato;
 
 public interface Contatos extends JpaRepository<Contato, Long> {
 
