@@ -27,6 +27,10 @@ public class Comentario {
 	@ManyToOne
 	@JoinColumn(name = "post_id",referencedColumnName = "id")
 	private Post post;
+	
+	@ManyToOne
+	@JoinColumn(name = "Usuario_id",referencedColumnName = "id")
+	private Usuario usuario;
 
 	
 	public Long getId() {

@@ -30,6 +30,8 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<Post> posts = new ArrayList<>();
+	@OneToMany(mappedBy = "usuario")
+	private List<Comentario> comentarios = new ArrayList<>();
 
 
 	public Long getId() {
@@ -62,6 +64,14 @@ public class Usuario {
 
 	public void setPosts(List<Post> posts) {
 		this.posts = posts;
+	}
+
+	public List<Comentario> getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
 	}
 
 	@Override
