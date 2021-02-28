@@ -86,10 +86,10 @@ public class UsuariosResource {
 	
 	@GetMapping("/{id}/comentarios")
 	public ResponseEntity<?> buscarComentariosPorUsuario(
-			@PathVariable(name = "usuario_id") Long Id) {
+			@PathVariable(name = "id") Long id) {
 		ResponseEntity<?> response = null;
 
-		Optional<Usuario> opt = usuarios.findById(Id);
+		Optional<Usuario> opt = usuarios.findById(id);
 		if (opt.isPresent()) {
 			Usuario usuario = opt.get();
 			List<Post> posts = usuario.getPosts();
