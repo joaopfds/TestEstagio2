@@ -84,7 +84,7 @@ public class UsuariosResource {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@GetMapping("/{id}/comentarios")
+	@GetMapping("/{id}/posts")
 	public ResponseEntity<?> buscarComentariosPorUsuario(
 			@PathVariable(name = "id") Long id) {
 		ResponseEntity<?> response = null;
