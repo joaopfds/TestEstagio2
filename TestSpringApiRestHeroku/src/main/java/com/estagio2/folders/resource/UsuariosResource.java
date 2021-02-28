@@ -86,7 +86,7 @@ public class UsuariosResource {
 	
 	@GetMapping("/{id}/comentarios")
 	public ResponseEntity<?> buscarComentariosPorUsuario(
-			@PathVariable(name = "id") Long Id) {
+			@PathVariable(name = "usuario_id") Long Id) {
 		ResponseEntity<?> response = null;
 
 		Optional<Usuario> opt = usuarios.findById(Id);

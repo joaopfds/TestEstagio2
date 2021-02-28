@@ -26,9 +26,11 @@ public class Post {
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_id",referencedColumnName = "id")
-		private Usuario usuario;
+	private Usuario usuario;
+	
+	
 	@OneToMany(mappedBy = "post")
-		private List<Comentario> comentarios = new ArrayList<>();
+	private List<Comentario> comentarios = new ArrayList<>();
 
 
 	public Long getId() {

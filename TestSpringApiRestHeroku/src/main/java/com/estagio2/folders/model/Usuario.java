@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Usuario {
 	
@@ -29,8 +31,12 @@ public class Usuario {
 	private String email;
 	
 	@OneToMany(mappedBy = "usuario")
+	@JsonIgnoreProperties("usuario") 
 	private List<Post> posts = new ArrayList<>();
+	
+	
 	@OneToMany(mappedBy = "usuario")
+	@JsonIgnoreProperties("usuario") 
 	private List<Comentario> comentarios = new ArrayList<>();
 
 
