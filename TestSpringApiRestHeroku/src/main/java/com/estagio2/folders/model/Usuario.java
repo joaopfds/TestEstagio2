@@ -33,6 +33,7 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario")
 	private List<Post> posts = new ArrayList<>();
 	
+	//test de erro
 	
 	@OneToMany(mappedBy = "usuario")
 	private List<Comentario> comentarios = new ArrayList<>();
