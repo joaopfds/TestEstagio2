@@ -18,10 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.estagio2.folders.model.Comentario;
 import com.estagio2.folders.model.Post;
 import com.estagio2.folders.model.Usuario;
-import com.estagio2.folders.repository.Posts;
 import com.estagio2.folders.repository.Usuarios;
 
 @RestController
@@ -30,9 +28,6 @@ public class UsuariosResource {
 	
 	@Autowired
 	private Usuarios usuarios;
-	
-	@Autowired
-	private Posts posts;
 	
 	@PostMapping
 	public Usuario adicionar(@Valid @RequestBody Usuario usuario) {
@@ -105,21 +100,4 @@ public class UsuariosResource {
 
 		return response;
 	}
-	
-	
-	/*@PostMapping("/series/{serieId}/comments")
-	public ResponseEntity<?> salvarComentario(
-			@PathVariable(name = "serieId")Long serieId, 
-			@RequestBody Comment comment) {
-		
-		Serie serie = new Serie();
-		serie.setId(serieId);
-		
-		comment.setSerie(serie);
-		
-		comment = commentRepository.save(comment);
-
-		return new ResponseEntity<>(comment, HttpStatus.OK);
-	}*/
-	
 }
