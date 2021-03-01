@@ -37,7 +37,7 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario")
 	private List<Comentario> comentarios = new ArrayList<>();
 
-
+	//test
 	public Long getId() {
 		return id;
 	}
