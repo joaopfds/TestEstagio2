@@ -31,12 +31,10 @@ public class Usuario {
 	private String email;
 	
 	@OneToMany(mappedBy = "usuario")
-	@JsonIgnoreProperties("usuario") 
 	private List<Post> posts = new ArrayList<>();
 	
 	
 	@OneToMany(mappedBy = "usuario")
-	@JsonIgnoreProperties("usuario") 
 	private List<Comentario> comentarios = new ArrayList<>();
 
 
