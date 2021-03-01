@@ -1,6 +1,7 @@
 package com.estagio2.folders.model;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -29,7 +30,7 @@ public class Post {
 	private Usuario usuario;
 	
 	
-	@OneToMany(mappedBy = "post")
+	@OneToMany(mappedBy = "post_id")
 	private List<Comentario> comentarios = new ArrayList<>();
 
 
