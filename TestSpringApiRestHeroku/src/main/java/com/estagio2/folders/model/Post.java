@@ -32,7 +32,6 @@ public class Post {
 	
 	
 	@OneToMany(mappedBy = "post")
-	@JsonIgnoreProperties("comentario") 
 	private List<Comentario> comentarios = new ArrayList<>();
 
 	public Long getId() {
