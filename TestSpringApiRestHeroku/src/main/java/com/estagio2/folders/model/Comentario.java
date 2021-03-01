@@ -32,13 +32,6 @@ public class Comentario {
 	@JoinColumn(name = "Usuario_id",referencedColumnName = "id")
 	private Usuario usuario;
 
-	
-	
-	public Comentario() {
-		super();
-	}
-	
-
 
 	public Long getId() {
 		return id;

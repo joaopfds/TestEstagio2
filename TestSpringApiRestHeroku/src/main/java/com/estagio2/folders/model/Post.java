@@ -30,7 +30,7 @@ public class Post {
 	private Usuario usuario;
 	
 	
-	@OneToMany(mappedBy = "post_id")
+	@OneToMany(mappedBy = "post")
 	private List<Comentario> comentarios = new ArrayList<>();
 
 
