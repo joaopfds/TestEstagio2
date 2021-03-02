@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -25,6 +26,9 @@ public class Post {
 	
 	@NotBlank
 	private String text;
+	
+	@NotNull
+	private int tipo;
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_id",referencedColumnName = "id")
@@ -53,6 +57,14 @@ public class Post {
 
 	public Usuario getUsuario() {
 		return usuario;
+	}
+	
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
 	}
 
 	public void setUsuario(Usuario usuario) {
