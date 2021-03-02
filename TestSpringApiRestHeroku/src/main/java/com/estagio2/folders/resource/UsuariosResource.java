@@ -100,4 +100,29 @@ public class UsuariosResource {
 
 		return response;
 	}
+	
+	@GetMapping("/{id}/posts/{id-rf}")
+	public ResponseEntity<?> buscarComentariosIDPorUsuario(
+			@PathVariable(name = "id") Long id,
+			@PathVariable(name = "id-rf") Long idd) {
+		ResponseEntity<?> response = null;
+
+		Optional<Usuario> opt = usuarios.findById(id);
+		if (opt.isPresent()) {
+			Usuario usuario = opt.get();
+			List<Post> posts = usuario.getPosts();
+			
+			if (posts.isEmpty() ) {
+				if(id == idd) {
+					response = new ResponseEntity<>(posts, HttpStatus.NO_CONTENT);
+				}
+			} else {
+				response = new ResponseEntity<>(posts, HttpStatus.OK);
+			}
+		} else {
+			response = new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		}
+
+		return response;
+	}
 }
