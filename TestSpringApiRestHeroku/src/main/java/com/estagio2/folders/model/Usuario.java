@@ -30,9 +30,6 @@ public class Usuario {
 	@Email
 	private String email;
 	
-	@NotNull
-	private int tipo;
-	
 	@OneToMany(mappedBy = "usuario")
 	@JsonIgnoreProperties("usuario") 
 	private List<Post> posts = new ArrayList<>();
@@ -66,13 +63,6 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public int getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
-	}
 
 	public List<Post> getPosts() {
 		return posts;
