@@ -101,7 +101,7 @@ public class UsuariosResource {
 		return response;
 	}
 	
-	@GetMapping("/{id}/posts/{id-rf}")
+	/*@GetMapping("/{id}/posts/{id-rf}")
 	public ResponseEntity<?> buscarComentariosIDPorUsuario(
 			@PathVariable(name = "id") Long id,
 			@PathVariable(name = "id-rf") Long idd) {
@@ -124,5 +124,5 @@ public class UsuariosResource {
 		}
 
 		return response;
-	}
+	}*/
 }
