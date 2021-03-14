@@ -1,11 +1,13 @@
 package com.estagio2.folders.resource;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.estagio2.folders.model.Comentario;
 import com.estagio2.folders.model.Post;
+import com.estagio2.folders.model.Usuario;
 import com.estagio2.folders.repository.Posts;
 
 @RestController
@@ -75,6 +78,28 @@ public class PostsResource {
 		posts.delete(post);
 		
 		return ResponseEntity.noContent().build();
+	}
+	
+	@GetMapping("/{id}/comentarios")
+	public ResponseEntity<?> buscarComentariosPorPost(
+			@PathVariable(name = "id") Long id) {
+		ResponseEntity<?> response = null;
+
+		Optional<Post> opt = posts.findById(id);
+		if (opt.isPresent()) {
+			Post posts = opt.get();
+			List<Comentario> coments = posts.getComentarios();
+			
+			if (coments.isEmpty()) {
+				response = new ResponseEntity<>(coments, HttpStatus.NO_CONTENT);
+			} else {
+				response = new ResponseEntity<>(coments, HttpStatus.OK);
+			}
+		} else {
+			response = new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		}
+
+		return response;
 	}
 
 }
