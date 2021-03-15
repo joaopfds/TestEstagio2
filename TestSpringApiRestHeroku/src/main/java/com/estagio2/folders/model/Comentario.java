@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
 @Entity
@@ -28,10 +29,12 @@ public class Comentario {
 	
 	@ManyToOne
 	@JoinColumn(name = "post_id",referencedColumnName = "id")
+	@JsonIgnore
 	private Post post;
 	
 	@ManyToOne
 	@JoinColumn(name = "Usuario_id",referencedColumnName = "id")
+	@JsonIgnore
 	private Usuario usuario;
 
 	public Long getId() {
