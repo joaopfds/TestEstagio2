@@ -36,7 +36,7 @@ public class Usuario {
 	
 	
 	@OneToMany(mappedBy = "usuario")
-	@JsonIgnoreProperties({"usuario, post"})
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	private List<Comentario> comentarios = new ArrayList<>();
 
 	public Long getId() {
