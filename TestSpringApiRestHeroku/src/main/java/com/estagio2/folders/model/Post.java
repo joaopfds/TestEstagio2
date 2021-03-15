@@ -14,6 +14,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -37,6 +38,7 @@ public class Post {
 	
 	@OneToMany(mappedBy = "post")
 	@JsonIgnoreProperties("usuario, post")
+	@JsonIgnore
 	private List<Comentario> comentarios = new ArrayList<>();
 
 	public Long getId() {
