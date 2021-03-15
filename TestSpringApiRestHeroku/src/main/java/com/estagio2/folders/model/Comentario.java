@@ -16,7 +16,6 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
 @Entity
-@JsonIgnoreType
 public class Comentario {
 	
 	@Id
