@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -32,11 +33,13 @@ public class Usuario {
 	
 	@OneToMany(mappedBy = "usuario")
 	@JsonIgnoreProperties("usuario") 
+	@JsonIgnore
 	private List<Post> posts = new ArrayList<>();
 	
 	
 	@OneToMany(mappedBy = "usuario")
 	@JsonIgnoreProperties({"usuario, post"})
+	@JsonIgnore
 	private List<Comentario> comentarios = new ArrayList<>();
 
 	public Long getId() {
