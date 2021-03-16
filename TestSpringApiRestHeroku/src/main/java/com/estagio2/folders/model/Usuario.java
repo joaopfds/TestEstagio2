@@ -79,7 +79,7 @@ public class Usuario {
 	public void setComentarios(List<Comentario> comentarios) {
 		this.comentarios = comentarios;
 	}
-
+//
 	@Override
 	public int hashCode() {
 		final int prime = 31;
