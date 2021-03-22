@@ -1,13 +1,13 @@
 package com.estagio2.folders.resource;
 
 import java.util.List;
-
-
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.estagio2.folders.model.Post;
 import com.estagio2.folders.model.Usuario;
 import com.estagio2.folders.repository.Usuarios;
 
@@ -77,4 +78,51 @@ public class UsuariosResource {
 		
 		return ResponseEntity.noContent().build();
 	}
+	
+	@GetMapping("/{id}/posts")
+	public ResponseEntity<?> buscarComentariosPorUsuario(
+			@PathVariable(name = "id") Long id) {
+		ResponseEntity<?> response = null;
+
+		Optional<Usuario> opt = usuarios.findById(id);
+		if (opt.isPresent()) {
+			Usuario usuario = opt.get();
+			List<Post> posts = usuario.getPosts();
+			
+			if (posts.isEmpty()) {
+				response = new ResponseEntity<>(posts, HttpStatus.NO_CONTENT);
+			} else {
+				response = new ResponseEntity<>(posts, HttpStatus.OK);
+			}
+		} else {
+			response = new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		}
+
+		return response;
+	}
+	
+	/*@GetMapping("/{id}/posts/{id-rf}")
+	public ResponseEntity<?> buscarComentariosIDPorUsuario(
+			@PathVariable(name = "id") Long id,
+			@PathVariable(name = "id-rf") Long idd) {
+		ResponseEntity<?> response = null;
+
+		Optional<Usuario> opt = usuarios.findById(id);
+		if (opt.isPresent()) {
+			Usuario usuario = opt.get();
+			List<Post> posts = usuario.getPosts();
+			
+			if (posts.isEmpty() ) {
+				if(id == idd) {
+					response = new ResponseEntity<>(posts, HttpStatus.NO_CONTENT);
+				}
+			} else {
+				response = new ResponseEntity<>(posts, HttpStatus.OK);
+			}
+		} else {
+			response = new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+		}
+
+		return response;
+	}*/
 }

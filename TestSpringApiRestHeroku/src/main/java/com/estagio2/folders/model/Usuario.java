@@ -1,13 +1,20 @@
 package com.estagio2.folders.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Usuario {
@@ -23,6 +30,17 @@ public class Usuario {
 	@NotNull
 	@Email
 	private String email;
+	
+	@OneToMany(mappedBy = "usuario")
+	@JsonIgnoreProperties("usuario") 
+	@JsonIgnore
+	private List<Post> posts = new ArrayList<>();
+	
+	
+	@OneToMany(mappedBy = "usuario")
+	@JsonIgnoreProperties({"usuario, post"})
+	@JsonIgnore
+	private List<Comentario> comentarios = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -48,6 +66,23 @@ public class Usuario {
 		this.email = email;
 	}
 
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	public List<Comentario> getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
+	}
+//
 	@Override
 	public int hashCode() {
 		final int prime = 31;
