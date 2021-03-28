@@ -8,7 +8,13 @@ public class GeralController {
 	
 	@RequestMapping("/")
 	private String homeapp() {
-		return "cadastro";
+		return "cadastro" ;
+
+	}
+	
+	@RequestMapping("/")
+	private String homeap() {
+		return "index" ;
 
 	}
 
