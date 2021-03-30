@@ -1,12 +1,12 @@
 package com.estagio2.folders.resource;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
 
-@RestController
+@Controller
 public class GeralController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/ab")
 	private String homeapp() {
 		return "cadastro" ;
 
