@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Repository
 public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
-
+    Usuario findByNome (String nome);
 
 
 }
