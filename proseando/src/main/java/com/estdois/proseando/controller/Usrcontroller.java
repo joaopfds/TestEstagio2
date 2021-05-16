@@ -9,28 +9,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.estdois.proseando.entity.User;
-import com.estdois.proseando.repository.UserRepository;
+import com.estdois.proseando.entity.Usr;
+import com.estdois.proseando.repository.UsrRepository;
 
 @Controller
-public class Usercontroller {
+public class Usrcontroller {
 	 @Autowired
-	    UserRepository usuarioRepository;
+	    UsrRepository usuarioRepository;
 
 	    @RequestMapping("/usuario")
 	    public String listarUsuarios(Model model){
-	        model.addAttribute( "user", usuarioRepository.findAll());
+	        model.addAttribute( "usr", usuarioRepository.findAll());
 	        return "listaDeUser";
 	    }
 
 	    @GetMapping("/usuario/add")
 	    public String usuarioForm(Model model){
-	        model.addAttribute("User", new User());
 	        return "usuarioForm";
 	    }
 
 	    @PostMapping("/usuario/process")
-	    public String processFrom(@Validated User usuario, BindingResult result){
+	    public String processFrom(@Validated Usr usuario, BindingResult result){
 	        if (result.hasErrors()){
 	            return "usuarioForm";
 	        }
