@@ -26,7 +26,7 @@ public class Comentario {
 
     @ManyToOne
     @JoinColumn(name = "Usuario_id",referencedColumnName = "id")
-    private User usuario;
+    private Usr usuario;
 
 
     public Long getId() {
@@ -53,11 +53,11 @@ public class Comentario {
         this.post = post;
     }
 
-    public User getUsuario() {
+    public Usr getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(User usuario) {
+    public void setUsuario(Usr usuario) {
         this.usuario = usuario;
     }
 
