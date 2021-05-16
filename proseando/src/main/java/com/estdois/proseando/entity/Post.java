@@ -16,7 +16,7 @@ import com.sun.istack.NotNull;
 
 @Entity
 public class Post {
-	@Id
+    @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     protected Long id;
@@ -69,11 +69,11 @@ public class Post {
         this.tipo = tipo;
     }
 
-    public User getUsuario() {
+    public Usr getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(User usuario) {
+    public void setUsuario(Usr usuario) {
         this.usuario = usuario;
     }
 
