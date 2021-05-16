@@ -19,13 +19,13 @@ public class Usercontroller {
 
 	    @RequestMapping("/usuario")
 	    public String listarUsuarios(Model model){
-	        model.addAttribute( "usuarios", usuarioRepository.findAll());
-	        return "list";
+	        model.addAttribute( "user", usuarioRepository.findAll());
+	        return "listaDeUser";
 	    }
 
 	    @GetMapping("/usuario/add")
 	    public String usuarioForm(Model model){
-	        model.addAttribute("usuario", new User());
+	        model.addAttribute("User", new User());
 	        return "usuarioForm";
 	    }
 
