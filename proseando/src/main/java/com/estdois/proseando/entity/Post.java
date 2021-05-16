@@ -29,7 +29,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id",referencedColumnName = "id")
-    private User usuario;
+    private Usr usuario;
 
 
     @OneToMany(mappedBy = "post")
