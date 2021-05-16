@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.estdois.proseando.entity.Usr;
 
 @Repository
-public interface UserRepository extends CrudRepository<Usr, Long> {
+public interface UsrRepository extends CrudRepository<Usr, Long> {
     //User findByNome (String nome);
 
 }
