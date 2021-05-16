@@ -13,7 +13,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.sun.istack.NotNull;
 
 @Entity
-public class User {
+public class Usr {
 	@Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
@@ -36,11 +36,11 @@ public class User {
     @OneToMany(mappedBy = "usuario")
     private List<Comentario> comentarios = new ArrayList<>();
 
-    public User() {
+    public Usr() {
     	
     }
     
-    public User(Long id, String nome, String email) {
+    public Usr(Long id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
