@@ -24,7 +24,7 @@
 <body>
 <h1>Formulario de usuario</h1>
 
-<form action="#" th:action="@{/usuario/process}" th:object="${usuario}" method="post">
+<form action="#" th:action="@{/usuario/process}" th:object="${user}" method="post">
     Nome: <input type="text" th:field="*{nome}"  class="form-control" >
     <span th:if="${#fields.hasErrors('nome')}"
           th:errors="*{nome}"></span><br>
