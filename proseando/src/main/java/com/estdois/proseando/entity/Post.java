@@ -16,7 +16,7 @@ import com.sun.istack.NotNull;
 
 @Entity
 public class Post {
-    @Id
+	@Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
     protected Long id;
@@ -29,7 +29,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id",referencedColumnName = "id")
-    private Usr usuario;
+    private User usuario;
 
 
     @OneToMany(mappedBy = "post")
@@ -69,11 +69,11 @@ public class Post {
         this.tipo = tipo;
     }
 
-    public Usr getUsuario() {
+    public User getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usr usuario) {
+    public void setUsuario(User usuario) {
         this.usuario = usuario;
     }
 
