@@ -10,5 +10,10 @@ public class MainController {
     public String telaPincipal(){
         return "home";
     }
+	
+	@RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
 
 }
