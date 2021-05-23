@@ -7,13 +7,7 @@ public class SecurityWebConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.
-			authorizeRequests()
-				.anyRequest()
-				.authenticated()
-			.and()
-			.formLogin()
-				.loginPage("/entrar").permitAll();
+		http.formLogin().loginPage("/entrar");
 		
 	}
 
