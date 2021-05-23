@@ -11,7 +11,7 @@ public class MainController {
         return "home";
     }
 	
-	@RequestMapping("/entrar")
+	@RequestMapping("/login")
     public String login(){
         return "login";
     }
