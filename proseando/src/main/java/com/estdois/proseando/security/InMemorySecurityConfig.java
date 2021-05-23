@@ -11,7 +11,7 @@ public class InMemorySecurityConfig {
 	public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {
 		builder
 			.inMemoryAuthentication()
-			.withUser("adm").password("123");
+			.withUser("usuarios").password("123");
 	}
 
 }
