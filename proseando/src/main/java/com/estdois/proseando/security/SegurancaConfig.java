@@ -28,8 +28,6 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.formLogin().loginPage("/login").permitAll()
 			.and()
-			.httpBasic()
-			.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		;
 	}
