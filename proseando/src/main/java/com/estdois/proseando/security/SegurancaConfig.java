@@ -26,7 +26,7 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests().anyRequest().authenticated()
 			.and()
-			.formLogin().loginPage("/login").permitAll()
+			.formLogin()
 			.and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		;
