@@ -18,8 +18,6 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests().anyRequest().authenticated()
 			.and()
 			.formLogin()
-			.and()
-			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		;
 	}
 	
