@@ -12,19 +12,11 @@
 
 	    <link th:href="@{/webjars/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
 
-	    <style>
-        body{
-            background-image: url("https://redacaonline.com.br/blog/wp-content/uploads/2020/03/mesa_estudos-1.jpg");
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 3cm;
-            width: 40em;
-        }
-    </style>
+	    <link th:href="@{/css/style.css}" rel="stylesheet"/>
 	</head>
 
-	<body>
-		<div class="px-4 py-3">
+	<body style="background-color: #f9f9f9">
+		<div class="row">
 			<div class="col-sm-4 col-sm-offset-4">
 				<div th:if="${param.error}">
 					<div class="alert alert-danger">Usuário e/ou inválidos!</div>
@@ -40,14 +32,12 @@
 				  	</div>
 					<div class="panel-body">
 						<form action="/entrar" method="post">
-							<div class="mb-3">
-								<label for="username" class="form-label">Email:</label>
-            					<input type="username" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@Exemplo.com">
+							<div class="form-group">
+								<input name="username" class="form-control" placeholder="Usuário"/>
 							</div>
 
-							<div class="mb-3">
-								<label for="password" class="form-label">Senha:</label>
-           		 				<input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Senha">
+							<div class="form-group">
+								<input type="password" name="password" class="form-control" placeholder="Senha"/>
 							</div>
 
 							<div class="form-group">
